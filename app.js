@@ -23,7 +23,7 @@ const appTimer = () => {
             if (secondsLeft < 10) {
                 secondDiv.textContent = "0" + secondsLeft;
             } else {
-                secondsDiv.textContent = secondsLeft;
+                secondDiv.textContent = secondsLeft;
             }
             minuteDiv.textContent = `${minutesLeft}`;
 
@@ -36,6 +36,6 @@ const appTimer = () => {
     } else {
         alert("Session has already started.");
     }
-
-    startBtn.addEventListerner("click", appTimer);
 };
+
+startBtn.addEventListener("click", appTimer);
