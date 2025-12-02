@@ -64,7 +64,7 @@ p {
 .right-side {
     top: 0;
     left: 100px;
-    trasnform-origin: left center;
+    transform-origin: left center;
     transform: rotate(0deg);
     border-top-right-radius: 100px;
     border-bottom-right-radius: 100px;  
@@ -76,7 +76,7 @@ p {
 }
 
 .circle-mask {
-    border-colour: #e85a71;
+    border-color: #e85a71;
 }
 
 .app-counter-box {
