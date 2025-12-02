@@ -1,104 +1,138 @@
-html {
-    font-family: "Fira Sans", sans-serif;
-    font-size: 20px;
-    letter-spacing: 0.8px;
-    min-height: 100vh;
-    color: #d8e9ef;
-    background-image: linear-gradient(-20deg, #025159 0%, #733b36 100%);
-    background-size: cover;
-}
-
-h1 {
-    margin: 0 auto 10px auto;
-    color: #d8e9ef;
-}
-
-p {
+/* --------------------
+   Global Notion style
+---------------------*/
+* {
     margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
-.app-message {
-    height: 20px;
-    margin: 10px auto 20px auto;
+body {
+    font-family: 'Inter', sans-serif;
+    background: #f7f7f5;
+    color: #222;
+    display: flex;
+    height: 100vh;
+    overflow: hidden;
 }
 
-.app-container {
-    width: 250px;
-    height: 420px;
-    margin: 40px auto;
-    text-align: center;
-    border-radius: 5px;
-    padding: 20px;
+/* --------------------
+   Layout (Notion style)
+---------------------*/
+.layout {
+    display: flex;
+    width: 100%;
 }
 
-.app-circle {
-    position: relative;
-    margin: 0 auto;
+.sidebar {
+    width: 240px;
+    background: #fafafa;
+    border-right: 1px solid #e4e4e4;
+    padding: 28px 20px;
+}
+
+.sidebar-title {
+    font-size: 22px;
+    font-weight: 600;
+    margin-bottom: 22px;
+}
+
+.nav-btn {
+    width: 100%;
+    padding: 10px 14px;
+    margin-bottom: 10px;
+    border: none;
+    background: transparent;
+    text-align: left;
+    font-size: 15px;
+    cursor: pointer;
+    border-radius: 6px;
+    transition: 0.15s;
+}
+
+.nav-btn:hover {
+    background: #ececec;
+}
+
+.nav-btn.active {
+    background: #e4e4e4;
+    font-weight: 600;
+}
+
+.content {
+    flex: 1;
+    padding: 40px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* --------------------
+   Timer layout
+---------------------*/
+.title {
+    font-size: 28px;
+    font-weight: 600;
+    margin-bottom: 40px;
+}
+
+.timer-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.timer-ring {
+    width: 260px;
+    height: 260px;
+    border-radius: 50%;
+    background: conic-gradient(var(--progress-color) calc(var(--progress) * 1%), #e6e6e6 0);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    /* Smooth animation */
+    transition: background 0.4s linear;
+}
+
+.timer-inner {
     width: 200px;
     height: 200px;
+    background: #ffffffcc;
+    backdrop-filter: blur(10px);
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
-.circle-shape {
-    pointer-events: none;
-}
-
-.semi-circle {
-    position: absolute;
-    width: 100px;
-    height: 200px;
-    box-sizing: border-box;
-    border: solid 6px;
-}
-
-.left-side {
-    top: 0;
-    left: 0;
-    transform-origin: right center;
-    transform: rotate(0deg);
-    border-top-left-radius: 100px;
-    border-bottom-left-radius: 100px;
-    border-right: none;
-    z-index: 1;
-}
-
-.right-side {
-    top: 0;
-    left: 100px;
-    transform-origin: left center;
-    transform: rotate(0deg);
-    border-top-right-radius: 100px;
-    border-bottom-right-radius: 100px;  
-    border-left: none;
-}
-
-.circle {
-    border-color: #bf5239;
-}
-
-.circle-mask {
-    border-color: #e85a71;
-}
-
-.app-counter-box {
-    font-family: "Droid Sans Mono", monospace;
-    font-size: 250%;
-    position: relative;
-    top: 50px;
-    color: #d8e9ef;
-}
-
-button {
-    position: relative;
-    top: 50px;
-    font-size: 80%;
-    text-transform: uppercase;
+.timer-display {
+    font-size: 48px;
+    font-weight: 600;
     letter-spacing: 1px;
-    border: none;
-    background: none;
-    outline: none;
-    color: #d8e9ef;
 }
 
-button:hover {
-    color: #90c0d1;
+/* Gradient progress fill */
+:root {
+    --progress: 0;
+    --progress-color: radial-gradient(circle at 50% 50%, #4fc3f7, #0288d1); /* sky-blue gradient */
+}
+
+/* --------------------
+   Button
+---------------------*/
+.btn-start {
+    margin-top: 40px;
+    padding: 14px 34px;
+    font-size: 18px;
+    background: #222;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.btn-start:hover {
+    background: #444;
 }

@@ -1,33 +1,45 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8" />
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-        <link
-          href="https://fonts.googleapis.com/css2?family=EG+Garamond:wght@400;500;600;700&family=Fira+Sans:wght@400;500;600;700&display=swap"
-          rel="stylesheet"
-        />
-        <link rel="stylesheet" href="./style.css" />
-        <title>Pomodoro App</title>
-    </head>
-    <body>
-        <div class="app-container">
-          <h1>pomodoro</h1>
-          <div class="app-message">press start to begin</div>
-          <div class="app-circle">
-            <div class="circle-shape">
-              <div class="semi-circle right-side circle-mask"></div>
-              <div class="semi-circle right-side circle"></div>
-              <div class="semi-circle left-side circle-mask"></div>
-              <div class="semi-circle left-side circle"></div>
+<head>
+    <meta charset="UTF-8">
+    <title>Pomodoro App</title>
+    <link rel="stylesheet" href="./style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <div class="layout">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <h2 class="sidebar-title">Pomodoro</h2>
+            <nav class="nav">
+                <button class="nav-btn active">Focus Session</button>
+                <button class="nav-btn">Short Break</button>
+                <button class="nav-btn">Long Break</button>
+            </nav>
+        </aside>
+
+        <!-- Main content -->
+        <main class="content">
+            <h1 class="title">Focus Session</h1>
+
+            <div class="timer-wrapper">
+                <div class="timer-ring">
+                    <div class="timer-inner">
+                        <p class="timer-display">
+                            <span class="minutes">0.1</span>
+                            :
+                            <span class="seconds">0</span>
+                        </p>
+                    </div>
+                </div>
             </div>
-          <div class="app-counter-box">
-            <p><span class="minutes">1</span>:<span class="seconds">00</span></p>
-          </div>
-          <button class="btn-start">start</button>
-        </div>
-      </div>
-      <script src="./app.js"></script>
-    </body>
+
+            <button class="btn-start">Start</button>
+        </main>
+    </div>
+
+    <script src="./app.js"></script>
+</body>
 </html>

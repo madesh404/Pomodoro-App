@@ -31,6 +31,11 @@ const appTimer = () => {
                 bells.play();
                 clearInterval(myInterval);
             }
+            
+            document.documentElement.style.setProperty(
+                "--progress",
+                (1 - totalSeconds / (sessionAmount * 60)) * 100
+            );
         };
         myInterval = setInterval(updateSeconds, 1000);
     } else {
