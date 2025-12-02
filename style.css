@@ -136,3 +136,25 @@ body {
 .btn-start:hover {
     background: #444;
 }
+
+.btn-reset {
+    margin-top: 15px;
+    padding: 12px 28px;
+    font-size: 16px;
+    background: #ddd;
+    color: #222;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.btn-reset:hover {
+    background: #ccc;
+}
+
+.session-count {
+    margin-top: 30px;
+    font-size: 18px;
+    font-weight: 500;
+}

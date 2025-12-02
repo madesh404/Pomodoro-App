@@ -1,46 +1,88 @@
 const bells = new Audio("./sounds/airport-bell.wav");
 const startBtn = document.querySelector(".btn-start");
-const session = document.querySelector(".minutes");
+const resetBtn = document.querySelector(".btn-reset");
+
+const minuteDiv = document.querySelector(".minutes");
+const secondDiv = document.querySelector(".seconds");
+
+const navButtons = document.querySelectorAll(".nav-btn");
+const sessionCountDiv = document.querySelector(".count");
+
 let myInterval;
-let state = true;
+let state = false;
+let sessionAmount = 25; // default focus
+let totalSeconds = sessionAmount * 60;
+let completedSessions = 0;
 
-const appTimer = () => {
-    const sessionAmount = Number.parseInt(session.textContent);
+// Update the DOM display
+function updateDisplay() {
+    minuteDiv.textContent = Math.floor(totalSeconds / 60);
+    let s = totalSeconds % 60;
+    secondDiv.textContent = s < 10 ? "0" + s : s;
 
-    if (state) {
+    document.documentElement.style.setProperty(
+        "--progress",
+        (1 - totalSeconds / (sessionAmount * 60)) * 100
+    );
+}
+
+// Timer logic
+function appTimer() {
+    if (state) return; // prevent double start
+    state = true;
+
+    myInterval = setInterval(() => {
+        totalSeconds--;
+
+        updateDisplay();
+
+        if (totalSeconds <= 0) {
+            clearInterval(myInterval);
+            bells.play();
+            state = false;
+
+            // Only count completed focus session
+            if (sessionAmount === 25) {
+                completedSessions++;
+                sessionCountDiv.textContent = completedSessions;
+            }
+        }
+    }, 1000);
+}
+
+// Reset logic
+function resetTimer() {
+    clearInterval(myInterval);
+    state = false;
+    totalSeconds = sessionAmount * 60;
+    updateDisplay();
+}
+
+// Break + Session switching
+navButtons.forEach((btn) => {
+    btn.addEventListener("click", () => {
+        navButtons.forEach(b => b.classList.remove("active"));
+        btn.classList.add("active");
+
+        clearInterval(myInterval);
         state = false;
-        let totalSeconds = sessionAmount *60;
 
-        const updateSeconds = () => {
-            const minuteDiv = document.querySelector(".minutes");
-            const secondDiv = document.querySelector(".seconds");
+        if (btn.textContent.includes("Focus")) {
+            sessionAmount = 25;
+        } else if (btn.textContent.includes("Short")) {
+            sessionAmount = 5;
+        } else if (btn.textContent.includes("Long")) {
+            sessionAmount = 15;
+        }
 
-            totalSeconds--;
+        totalSeconds = sessionAmount * 60;
+        updateDisplay();
+    });
+});
 
-            let minutesLeft = Math.floor(totalSeconds / 60);
-            let secondsLeft = totalSeconds % 60;
-
-            if (secondsLeft < 10) {
-                secondDiv.textContent = "0" + secondsLeft;
-            } else {
-                secondDiv.textContent = secondsLeft;
-            }
-            minuteDiv.textContent = `${minutesLeft}`;
-
-            if (minutesLeft === 0 && secondsLeft === 0) {
-                bells.play();
-                clearInterval(myInterval);
-            }
-            
-            document.documentElement.style.setProperty(
-                "--progress",
-                (1 - totalSeconds / (sessionAmount * 60)) * 100
-            );
-        };
-        myInterval = setInterval(updateSeconds, 1000);
-    } else {
-        alert("Session has already started.");
-    }
-};
-
+// Event listeners
 startBtn.addEventListener("click", appTimer);
+resetBtn.addEventListener("click", resetTimer);
+
+// Initial display
+updateDisplay();
