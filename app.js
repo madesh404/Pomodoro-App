@@ -14,6 +14,30 @@ let sessionAmount = 25; // default focus
 let totalSeconds = sessionAmount * 60;
 let completedSessions = 0;
 
+function updateMode(mode) {
+    const titleEl = document.querySelector(".title");
+    const sessionCounter = document.querySelector(".session-counter");
+
+    if (mode === "focus") {
+        document.title = "Pomodoro App";
+        titleEl.textContent = "Focus Session";
+        sessionCounter.style.display = "block";   // show counter
+    }
+
+    if (mode === "short") {
+        document.title = "Pomodoro App";
+        titleEl.textContent = "Short Break";
+        sessionCounter.style.display = "none";    // hide counter
+    }
+
+    if (mode === "long") {
+        document.title = "Pomodoro App";
+        titleEl.textContent = "Long Break";
+        sessionCounter.style.display = "none";    // hide counter
+    }
+}
+
+
 // Update the DOM display
 function updateDisplay() {
     minuteDiv.textContent = Math.floor(totalSeconds / 60);
@@ -69,10 +93,13 @@ navButtons.forEach((btn) => {
 
         if (btn.textContent.includes("Focus")) {
             sessionAmount = 25;
+            updateMode("focus");
         } else if (btn.textContent.includes("Short")) {
             sessionAmount = 5;
+            updateMode("short");
         } else if (btn.textContent.includes("Long")) {
             sessionAmount = 15;
+            updateMode("long");
         }
 
         totalSeconds = sessionAmount * 60;
