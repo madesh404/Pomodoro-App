@@ -125,7 +125,12 @@ plays at the end of each completed session.
 
 ---
 
-## 🛠 Technologies Used
+## 🛠 Tech Stack
+<p align="left">
+  <img height="40" src="https://cdn.simpleicons.org/html5/E34F26" />
+  <img height="40" src="https://cdn.simpleicons.org/css3/1572B6" />
+  <img height="40" src="https://cdn.simpleicons.org/javascript/F7DF1E" />
+</p>
 
 * **HTML5** — structure
 * **CSS3** — custom animations, Notion-style UI
