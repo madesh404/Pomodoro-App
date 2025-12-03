@@ -132,8 +132,6 @@ plays at the end of each completed session.
   <img height="40" src="https://cdn.simpleicons.org/javascript/F7DF1E" />
 </p>
 
-![alt text](image.png)
-
 * **HTML5** — structure
 * **CSS3** — custom animations, Notion-style UI
 * **JavaScript (ES6)** — timer logic + interactivity
