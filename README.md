@@ -1,4 +1,6 @@
 # ⏳ Pomodoro Timer — Notion-Style Productivity App
+![Pomodoro](https://img.shields.io/badge/Pomodoro%20Timer-25:00-red)
+
 
 A clean, modern **Notion-inspired Pomodoro timer** built with HTML, CSS, and JavaScript.
 Features an **animated radial progress ring**, session tracking, break modes, reset controls, and a **timeline slider** for instantly adjusting or previewing the timer.
