@@ -202,3 +202,34 @@ body {
     font-weight: 500;
     color: #37352f;
 }
+
+.timeline-slider {
+    width: 260px;
+    margin-top: 25px;
+    appearance: none;
+    height: 6px;
+    background: #ddd;
+    border-radius: 50px;
+    outline: none;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+.timeline-slider:hover {
+    background: #ccc;
+}
+
+/* slider thumb */
+.timeline-slider::-webkit-slider-thumb {
+    appearance: none;
+    width: 18px;
+    height: 18px;
+    background: #222;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.timeline-slider::-webkit-slider-thumb:hover {
+    transform: scale(1.15);
+}

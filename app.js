@@ -8,6 +8,8 @@ const secondDiv = document.querySelector(".seconds");
 const navButtons = document.querySelectorAll(".nav-btn");
 const sessionCountDiv = document.querySelector(".count");
 
+const slider = document.querySelector(".timeline-slider");
+
 let myInterval;
 let state = false;
 let sessionAmount = 25; // default focus
@@ -44,10 +46,11 @@ function updateDisplay() {
     let s = totalSeconds % 60;
     secondDiv.textContent = s < 10 ? "0" + s : s;
 
-    document.documentElement.style.setProperty(
-        "--progress",
-        (1 - totalSeconds / (sessionAmount * 60)) * 100
-    );
+    const progress = (1 - totalSeconds / (sessionAmount * 60)) * 100;
+
+    document.documentElement.style.setProperty("--progress", progress);
+
+    slider.value = progress;
 }
 
 // Timer logic
@@ -107,9 +110,26 @@ navButtons.forEach((btn) => {
     });
 });
 
+function updateFromSlider(value) {
+    const total = sessionAmount * 60;    // session duration
+    const secondsUsed = Math.floor((value / 100) * total);
+
+    totalSeconds = total - secondsUsed;
+
+    updateDisplay();
+}
+
 // Event listeners
 startBtn.addEventListener("click", appTimer);
 resetBtn.addEventListener("click", resetTimer);
+
+slider.addEventListener("input", (e) => {
+    clearInterval(myInterval);   // stop timer while scrubbing
+    state = false;
+
+    updateFromSlider(e.target.value);
+});
+
 
 // Initial display
 updateDisplay();
