@@ -5,6 +5,11 @@
 ![CSS](https://img.shields.io/badge/CSS-3-blue)
 ![JavaScript](https://img.shields.io/badge/JavaScript-ES6-yellow)
 
+![License](https://img.shields.io/badge/license-MIT-green.svg)
+![Status](https://img.shields.io/badge/status-active-brightgreen)
+![Version](https://img.shields.io/badge/version-1.0.0-blue)
+
+
 
 
 A clean, modern **Notion-inspired Pomodoro timer** built with HTML, CSS, and JavaScript.
