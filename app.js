@@ -16,7 +16,7 @@ let completedSessions = 0;
 
 function updateMode(mode) {
     const titleEl = document.querySelector(".title");
-    const sessionCounter = document.querySelector(".session-counter");
+    const sessionCounter = document.querySelector(".session-count");
 
     if (mode === "focus") {
         document.title = "Pomodoro App";
