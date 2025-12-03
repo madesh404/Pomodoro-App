@@ -1,5 +1,6 @@
 # ⏳ Pomodoro Timer — Notion-Style Productivity App
-![Pomodoro](https://img.shields.io/badge/Pomodoro-000000?style=for-the-badge&logo=apple&logoColor=red)
+![Pomodoro](https://img.shields.io/badge/Pomodoro%20Timer-🍅-red?style=for-the-badge)
+
 
 
 ![HTML](https://img.shields.io/badge/HTML-5-orange)
