@@ -83,43 +83,74 @@ body {
 }
 
 .timer-ring {
-    width: 260px;
-    height: 260px;
+    width: 280px;
+    height: 280px;
     border-radius: 50%;
-    background: conic-gradient(var(--progress-color) calc(var(--progress) * 1%), #e6e6e6 0);
+    position: relative;
     display: flex;
     justify-content: center;
     align-items: center;
+    
+    /* Blue hue background that pulses */
+    background: radial-gradient(circle at center, 
+        rgba(33, 150, 243, 0.12), 
+        rgba(33, 150, 243, 0.08) 40%,
+        rgba(33, 150, 243, 0.04) 70%,
+        transparent 100%
+    );
+    
+    /* Scale based on progress - shrinks as time runs out */
+    transform: scale(calc(0.7 + (var(--progress) / 100) * 0.3));
+    
+    /* Smooth scale animation */
+    transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1),
+                background 0.4s ease;
+}
 
-    /* Smooth animation */
-    transition: background 0.4s linear;
+/* Stronger glow when timer is running and full */
+.timer-ring.running {
+    background: radial-gradient(circle at center, 
+        rgba(33, 150, 243, 0.18), 
+        rgba(33, 150, 243, 0.12) 40%,
+        rgba(33, 150, 243, 0.06) 70%,
+        transparent 100%
+    );
+    box-shadow: 0 0 60px rgba(33, 150, 243, 0.15),
+                0 0 100px rgba(33, 150, 243, 0.08);
 }
 
 .timer-inner {
-    width: 200px;
-    height: 200px;
-    background: #ffffffcc;
-    backdrop-filter: blur(10px);
+    width: 220px;
+    height: 220px;
     border-radius: 50%;
+    
+    /* Clean white background */
+    background: #ffffff;
+    
     display: flex;
     justify-content: center;
     align-items: center;
+    
+    /* Subtle shadow for depth */
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04),
+                0 4px 16px rgba(0, 0, 0, 0.04),
+                inset 0 2px 4px rgba(0, 0, 0, 0.02);
 }
 
 .timer-display {
     font-size: 48px;
     font-weight: 600;
     letter-spacing: 1px;
+    color: #37352f;
 }
 
-/* Gradient progress fill */
+/* Progress variable */
 :root {
-    --progress: 0;
-    --progress-color: radial-gradient(circle at 50% 50%, #4fc3f7, #0288d1); /* sky-blue gradient */
+    --progress: 100;
 }
 
 /* --------------------
-   Button
+   Buttons
 ---------------------*/
 .btn-start {
     margin-top: 40px;
@@ -131,30 +162,43 @@ body {
     border-radius: 8px;
     cursor: pointer;
     transition: 0.2s;
+    font-weight: 500;
 }
 
 .btn-start:hover {
     background: #444;
+    transform: translateY(-1px);
+}
+
+.btn-start:active {
+    transform: translateY(0);
 }
 
 .btn-reset {
     margin-top: 15px;
     padding: 12px 28px;
     font-size: 16px;
-    background: #ddd;
-    color: #222;
+    background: #e8e8e8;
+    color: #37352f;
     border: none;
     border-radius: 8px;
     cursor: pointer;
     transition: 0.2s;
+    font-weight: 500;
 }
 
 .btn-reset:hover {
-    background: #ccc;
+    background: #d8d8d8;
+    transform: translateY(-1px);
+}
+
+.btn-reset:active {
+    transform: translateY(0);
 }
 
 .session-count {
     margin-top: 30px;
     font-size: 18px;
     font-weight: 500;
+    color: #37352f;
 }
