@@ -128,7 +128,7 @@ plays at the end of each completed session.
 ## 🛠 Tech Stack
 <p align="left">
   <img height="40" src="https://cdn.simpleicons.org/html5/E34F26" />
-  <img height="40" src="https://cdn.simpleicons.org/css3/%23663399" />
+  <img height="40" src="https://cdn.simpleicons.org/css3" />
   <img height="40" src="https://cdn.simpleicons.org/javascript/F7DF1E" />
 </p>
 
