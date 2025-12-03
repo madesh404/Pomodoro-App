@@ -1,18 +1,9 @@
 # ⏳ Pomodoro Timer — Notion-Style Productivity App
-![Pomodoro](https://img.shields.io/badge/Pomodoro%20Timer-🍅-red?style=for-the-badge)
+![Pomodoro](https://img.shields.io/badge/Pomodoro%20Timer-25:00-red)
 
-
-
-![HTML](https://img.shields.io/badge/HTML-5-orange)
-![CSS](https://img.shields.io/badge/CSS-3-blue)
-![JavaScript](https://img.shields.io/badge/JavaScript-ES6-yellow)
-
-![License](https://img.shields.io/badge/license-MIT-green.svg)
-![Status](https://img.shields.io/badge/status-active-brightgreen)
-![Version](https://img.shields.io/badge/version-1.0.0-blue)
-
-
-
+![HTML5](https://img.shields.io/badge/HTML5-E34F26?logo=html5&logoColor=white&style=for-the-badge)
+![CSS3](https://img.shields.io/badge/CSS3-1572B6?logo=css3&logoColor=white&style=for-the-badge)
+![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?logo=javascript&logoColor=black&style=for-the-badge)
 
 A clean, modern **Notion-inspired Pomodoro timer** built with HTML, CSS, and JavaScript.
 Features an **animated radial progress ring**, session tracking, break modes, reset controls, and a **timeline slider** for instantly adjusting or previewing the timer.
@@ -135,11 +126,6 @@ plays at the end of each completed session.
 ---
 
 ## 🛠 Technologies Used
-
-![HTML5](https://img.shields.io/badge/HTML5-E34F26?logo=html5&logoColor=white&style=for-the-badge)
-![CSS3](https://img.shields.io/badge/CSS3-1572B6?logo=css3&logoColor=white&style=for-the-badge)
-![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?logo=javascript&logoColor=black&style=for-the-badge)
-
 
 * **HTML5** — structure
 * **CSS3** — custom animations, Notion-style UI
