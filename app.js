@@ -16,6 +16,11 @@ let sessionAmount = 25; // default focus
 let totalSeconds = sessionAmount * 60;
 let completedSessions = 0;
 
+// converting timer to use a 'real clock'
+let endTime = null;
+let pausedRemaining = null;
+
+
 function updateMode(mode) {
     const titleEl = document.querySelector(".title");
     const sessionCounter = document.querySelector(".session-count");
@@ -55,32 +60,44 @@ function updateDisplay() {
 
 // Timer logic
 function appTimer() {
-    if (state) return; // prevent double start
+    if (state) return;
     state = true;
 
+    // If first start
+    if (!endTime) {
+        endTime = Date.now() + totalSeconds * 1000;
+    }
+
     myInterval = setInterval(() => {
-        totalSeconds--;
+        const now = Date.now();
+        const remaining = Math.round((endTime - now) / 1000);
+
+        totalSeconds = remaining;
 
         updateDisplay();
 
-        if (totalSeconds <= 0) {
+        // Timer finished
+        if (remaining <= 0) {
             clearInterval(myInterval);
             bells.play();
             state = false;
 
-            // Only count completed focus session
+            endTime = null; // reset timestamp
+
             if (sessionAmount === 25) {
                 completedSessions++;
                 sessionCountDiv.textContent = completedSessions;
             }
         }
-    }, 1000);
+    }, 200); // updates 5x per second for smoothness
 }
 
 // Reset logic
 function resetTimer() {
     clearInterval(myInterval);
     state = false;
+    endTime = null;
+
     totalSeconds = sessionAmount * 60;
     updateDisplay();
 }
