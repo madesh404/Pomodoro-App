@@ -45,6 +45,34 @@ Perfect for studying, deep work, or building a custom productivity flow.
 * Helps debug the animation without waiting the full timer
 * Updates the radial ring and time display in real time
 
+### ⏱️ Timer Accuracy (Sleep Mode Safe)
+
+Web browsers stop JavaScript timers when a computer goes into sleep mode, which normally causes countdown timers to freeze or become inaccurate.
+
+To make this Pomodoro timer fully reliable, the app uses a real clock-based timer instead of relying on `setInterval()`.
+
+🧠 How It Works
+Instead of counting down each second like this:
+```
+javascripttotalSeconds--;
+```
+The app stores a future timestamp:
+```
+javascriptendTime = Date.now() + totalSeconds * 1000;
+```
+Every update, it recalculates remaining time using the actual system clock:
+```
+javascriptconst remaining = Math.round((endTime - Date.now()) / 1000);
+```
+
+✅ Benefits
+
+ * Works even if your laptop sleeps
+ * Works even if the browser throttles background tabs
+ * No drift, no lost time
+ * Timer instantly corrects itself on wake
+ * Much more reliable for real study sessions
+
 ---
 
 ## 📁 Project Structure
