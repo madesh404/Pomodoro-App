@@ -45,7 +45,7 @@ Perfect for studying, deep work, or building a custom productivity flow.
 * Helps debug the animation without waiting the full timer
 * Updates the radial ring and time display in real time
 
-### ⏱️ Timer Accuracy (Sleep Mode Safe)
+### ✔ **Timer Accuracy (Sleep Mode Safe)**
 
 Web browsers stop JavaScript timers when a computer goes into sleep mode, which normally causes countdown timers to freeze or become inaccurate.
 
