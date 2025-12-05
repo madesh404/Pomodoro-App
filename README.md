@@ -51,20 +51,6 @@ Web browsers stop JavaScript timers when a computer goes into sleep mode, which 
 
 To make this Pomodoro timer fully reliable, the app uses a real clock-based timer instead of relying on `setInterval()`.
 
-🧠 How It Works
-Instead of counting down each second like this:
-```
-javascripttotalSeconds--;
-```
-The app stores a future timestamp:
-```
-javascriptendTime = Date.now() + totalSeconds * 1000;
-```
-Every update, it recalculates remaining time using the actual system clock:
-```
-javascriptconst remaining = Math.round((endTime - Date.now()) / 1000);
-```
-
 ✅ Benefits
 
  * Works even if your laptop sleeps
@@ -138,6 +124,20 @@ npx live-server
 * Maps slider position → `--progress`
 * Updates displayed time instantly
 * Pure UI debug tool, optional to remove later
+
+### **Sleep Mode Safe**
+Instead of counting down each second like this:
+```
+javascripttotalSeconds--;
+```
+The app stores a future timestamp:
+```
+javascriptendTime = Date.now() + totalSeconds * 1000;
+```
+Every update, it recalculates remaining time using the actual system clock:
+```
+javascriptconst remaining = Math.round((endTime - Date.now()) / 1000);
+```
 
 ---
 
